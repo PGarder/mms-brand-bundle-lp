@@ -1,6 +1,38 @@
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
+import { Users, TrendingUp, BarChart } from "lucide-react";
+
+const CountUpAnimation = ({ end, label, icon: Icon }: { end: number; label: string; icon: React.ElementType }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const duration = 2000; // 2 seconds
+    const steps = 60;
+    const increment = end / steps;
+    const interval = duration / steps;
+
+    let current = 0;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(current));
+      }
+    }, interval);
+
+    return () => clearInterval(timer);
+  }, [end]);
+
+  return (
+    <div className="flex flex-col items-center p-6 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 transition-transform hover:scale-105">
+      <Icon className="w-8 h-8 mb-2 text-mms-red" />
+      <div className="text-3xl font-bold mb-1">{count.toLocaleString()}</div>
+      <div className="text-sm opacity-80">{label}</div>
+    </div>
+  );
+};
 
 const HeroSection = () => {
   return (
@@ -27,43 +59,50 @@ const HeroSection = () => {
               </Button>
             </div>
           </div>
-          <div className="relative hidden md:block">
-            <div className="absolute -top-10 -right-10 w-72 h-72 bg-mms-blue rounded-full opacity-20 blur-3xl"></div>
-            <div className="relative z-10 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 p-6 mms-shadow">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 rounded-full bg-mms-red flex items-center justify-center mr-4">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+          <div className="relative space-y-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 animate-fade-in">
+              <CountUpAnimation end={87500} label="Magazine Subscribers" icon={Users} />
+              <CountUpAnimation end={50000} label="Monthly Visitors" icon={TrendingUp} />
+              <CountUpAnimation end={43000} label="Email Subscribers" icon={BarChart} />
+            </div>
+            <div className="relative">
+              <div className="absolute -top-10 -right-10 w-72 h-72 bg-mms-blue rounded-full opacity-20 blur-3xl"></div>
+              <div className="relative z-10 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 p-6 mms-shadow">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 rounded-full bg-mms-red flex items-center justify-center mr-4">
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h3 className="font-semibold text-xl">Multi-Channel Approach</h3>
                 </div>
-                <h3 className="font-semibold text-xl">Multi-Channel Approach</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 mr-2 text-mms-red mt-1" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span>Web display ad package (90 days)</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 mr-2 text-mms-red mt-1" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span>Offsite display retargeting (90 days)</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 mr-2 text-mms-red mt-1" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span>Magazine display advertisements (3x print)</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 mr-2 text-mms-red mt-1" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span>Analytics dashboard/ad tracker</span>
+                  </li>
+                </ul>
               </div>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 mr-2 text-mms-red mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  <span>Web display ad package (90 days)</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 mr-2 text-mms-red mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  <span>Offsite display retargeting (90 days)</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 mr-2 text-mms-red mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  <span>Magazine display advertisements (3x print)</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 mr-2 text-mms-red mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  <span>Analytics dashboard/ad tracker</span>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
