@@ -1,7 +1,6 @@
-
 import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Users, TrendingUp, BarChart } from "lucide-react";
+import { Users, TrendingUp, BarChart, Monitor, Globe, Book } from "lucide-react";
 
 const CountUpAnimation = ({ end, label, icon: Icon }: { end: number; label: string; icon: React.ElementType }) => {
   const [count, setCount] = useState(0);
@@ -76,27 +75,19 @@ const HeroSection = () => {
                 </div>
                 <ul className="space-y-3">
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 mr-2 text-mms-red mt-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
+                    <Monitor className="w-5 h-5 mr-2 text-mms-red mt-1" />
                     <span>Web display ad package (90 days)</span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 mr-2 text-mms-red mt-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
+                    <Globe className="w-5 h-5 mr-2 text-mms-red mt-1" />
                     <span>Offsite display retargeting (90 days)</span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 mr-2 text-mms-red mt-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
+                    <Book className="w-5 h-5 mr-2 text-mms-red mt-1" />
                     <span>Magazine display advertisements (3x print)</span>
                   </li>
                   <li className="flex items-start">
-                    <svg className="w-5 h-5 mr-2 text-mms-red mt-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
+                    <BarChart className="w-5 h-5 mr-2 text-mms-red mt-1" />
                     <span>Analytics dashboard/ad tracker</span>
                   </li>
                 </ul>
