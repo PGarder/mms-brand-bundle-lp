@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Users, TrendingUp, BarChart } from "lucide-react";
@@ -47,14 +48,15 @@ const HeroSection = () => {
             <p className="text-lg md:text-xl opacity-90">
               Reach an audience of qualified, active CNC machining shops and manufacturing professionals with high impact brand impressions across multiple content consumption channels.
             </p>
-            <div className="bg-mms-red px-5 py-4 rounded-lg inline-block">
-              <p className="text-lg font-semibold">Bundle Savings: $5,736 average per month</p>
+            <div className="inline-flex items-center gap-2 border-l-4 border-mms-red pl-4 bg-white/5 backdrop-blur-sm py-3">
+              <span className="text-mms-red font-semibold">Bundle Savings:</span>
+              <span className="text-lg font-semibold">$5,736 average per month</span>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button className="bg-mms-red hover:bg-red-600 text-white text-lg py-6 px-8">
                 Build Your Brand
               </Button>
-              <Button variant="outline" className="border-white text-mms-darkgray hover:bg-white hover:text-mms-darkgray text-lg py-6 px-8">
+              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-mms-darkgray text-lg py-6 px-8">
                 Download Media Kit
               </Button>
             </div>
