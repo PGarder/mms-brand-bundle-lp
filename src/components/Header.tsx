@@ -8,7 +8,7 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         <div className="w-44">
           <img 
-            src="/lovable-uploads/63ab0c99-50d3-4a3b-ae90-22c1c6b4bb86.png" 
+            src="/lovable-uploads/03dd1c8d-e34a-42e3-8fff-47edac1ecdeb.png" 
             alt="Modern Machine Shop Logo" 
             className="w-full h-auto"
           />
