@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Users, TrendingUp, BarChart, Monitor, Globe, Book } from "lucide-react";
@@ -29,7 +30,7 @@ const CountUpAnimation = ({ end, label, icon: Icon }: { end: number; label: stri
     <div className="flex flex-col items-center p-6 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 transition-transform hover:scale-105">
       <Icon className="w-8 h-8 mb-2 text-mms-red" />
       <div className="text-3xl font-bold mb-1">{count.toLocaleString()}</div>
-      <div className="text-sm opacity-80">{label}</div>
+      <div className="text-xs opacity-80">{label}</div>
     </div>
   );
 };
