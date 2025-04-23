@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Users, TrendingUp, BarChart } from "lucide-react";
@@ -42,8 +41,8 @@ const HeroSection = () => {
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="space-y-6 animate-fade-in">
             <h1 className="font-heading text-3xl md:text-5xl font-bold leading-tight">
-              Build Your Brand and Condition Buyers
-              <span className="block text-mms-red mt-2">2025 Brand Awareness Bundle</span>
+              Accelerate Your Growth and Dominate Your Market
+              <span className="block text-mms-red mt-2">Through Our 2025 Brand Awareness Bundle</span>
             </h1>
             <p className="text-lg md:text-xl opacity-90">
               Reach an audience of qualified, active CNC machining shops and manufacturing professionals with high impact brand impressions across multiple content consumption channels.
