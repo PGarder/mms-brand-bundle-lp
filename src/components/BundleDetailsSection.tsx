@@ -1,11 +1,8 @@
-
 import React from 'react';
 import { Check } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-
 const BundleDetailsSection = () => {
-  return (
-    <section id="bundle-details" className="py-16 md:py-24">
+  return <section id="bundle-details" className="py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-mms-darkgray mb-4">
@@ -64,7 +61,7 @@ const BundleDetailsSection = () => {
               <p className="text-xl mb-2">Bundle Investment</p>
               <div className="flex items-center justify-center">
                 <span className="text-4xl font-bold">$5,500</span>
-                <span className="text-xl ml-2">mo./net</span>
+                <span className="text-xl ml-2">/month</span>
               </div>
               <p className="text-mms-red font-medium mt-2">3 CONSECUTIVE MONTH MINIMUM</p>
             </div>
@@ -86,8 +83,6 @@ const BundleDetailsSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default BundleDetailsSection;
