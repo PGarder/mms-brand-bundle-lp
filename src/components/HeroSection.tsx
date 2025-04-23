@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 
@@ -22,7 +21,7 @@ const HeroSection = () => {
               <Button className="bg-mms-red hover:bg-red-600 text-white text-lg py-6 px-8">
                 Book Your Bundle
               </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-mms-darkgray text-lg py-6 px-8">
+              <Button variant="outline" className="border-white text-mms-darkgray hover:bg-white hover:text-mms-darkgray text-lg py-6 px-8">
                 Request a Demo
               </Button>
             </div>
