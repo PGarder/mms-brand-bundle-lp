@@ -1,0 +1,32 @@
+
+import React from 'react';
+import { Button } from "@/components/ui/button";
+
+const Header = () => {
+  return (
+    <header className="bg-white py-4 px-4 md:px-8 shadow-sm">
+      <div className="container mx-auto flex justify-between items-center">
+        <div className="w-44">
+          <img 
+            src="/lovable-uploads/63ab0c99-50d3-4a3b-ae90-22c1c6b4bb86.png" 
+            alt="Modern Machine Shop Logo" 
+            className="w-full h-auto"
+          />
+        </div>
+        <div className="hidden md:flex items-center gap-6">
+          <nav>
+            <ul className="flex gap-6">
+              <li><a href="#benefits" className="text-mms-darkgray hover:text-mms-red font-medium">Benefits</a></li>
+              <li><a href="#bundle-details" className="text-mms-darkgray hover:text-mms-red font-medium">Bundle Details</a></li>
+              <li><a href="#pricing" className="text-mms-darkgray hover:text-mms-red font-medium">Pricing</a></li>
+            </ul>
+          </nav>
+          <Button className="bg-mms-red hover:bg-red-600 text-white">Book Your Bundle</Button>
+        </div>
+        <Button className="md:hidden bg-mms-red hover:bg-red-600 text-white text-sm px-3 py-1">Contact</Button>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
