@@ -33,7 +33,7 @@ const Index = () => {
           <p className="text-lg max-w-2xl mx-auto mb-8">
             Join manufacturing leaders who trust Modern Machine Shop to deliver results through targeted, multi-channel marketing campaigns.
           </p>
-          <Button className="bg-white text-mms-red hover:bg-mms-lightgray text-lg py-6 px-10">
+          <Button variant="white" className="text-lg py-6 px-10">
             Book Your Brand Awareness Bundle
           </Button>
         </div>

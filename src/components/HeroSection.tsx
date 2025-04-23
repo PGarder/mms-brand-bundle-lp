@@ -52,7 +52,7 @@ const HeroSection = () => {
               <Button className="bg-mms-red hover:bg-red-600 text-white text-lg py-6 px-8">
                 Build Your Brand
               </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-white/20 hover:text-white text-lg py-6 px-8">
+              <Button variant="white" className="text-lg py-6 px-8">
                 Download Media Kit
               </Button>
             </div>
