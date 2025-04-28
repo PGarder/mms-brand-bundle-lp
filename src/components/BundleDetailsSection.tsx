@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Check } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -69,12 +70,12 @@ const BundleDetailsSection = () => {
 
             <div className="bg-white/10 rounded-lg p-6 mb-8">
               <h3 className="text-xl font-bold mb-4">Need design and creative for your ads?</h3>
-              <p className="mb-4">We have an in-house creative team that can help you with comprehensive display advertising package.</p>
+              <p>We have an in-house creative team that can help you with comprehensive display advertising package.</p>
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-xl font-bold">Book Your Brand Awareness Bundle Today!</h3>
-              <p>For more information about Modern Machine Shop Brand Awareness Bundle or to schedule a demo, ask your sales representative or contact our advertising manager.</p>
+              <h3 className="text-2xl font-bold">Book Your Brand Awareness Bundle Today!</h3>
+              <p className="text-lg">For more information about Modern Machine Shop Brand Awareness Bundle or to schedule a demo, ask your sales representative or contact our advertising manager.</p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button className="flex-1 bg-mms-red hover:bg-red-600 text-white">Book Your Bundle</Button>
                 <Button className="flex-1 bg-white text-mms-darkgray hover:bg-mms-lightgray">Contact Sales</Button>
