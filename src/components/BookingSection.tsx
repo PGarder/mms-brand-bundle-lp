@@ -1,23 +1,14 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Calendar } from "lucide-react";
-
 const BookingSection = () => {
-  return (
-    <section id="book-meeting" className="py-16 md:py-24 bg-white">
+  return <section id="book-meeting" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="space-y-6">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-mms-darkgray">
-              Schedule a Consultation
-            </h2>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-mms-darkgray">Book Your Brand Bundle</h2>
             <div className="flex items-start gap-4">
-              <img 
-                src="/lovable-uploads/edaa5036-fe7e-49f3-b4bc-1422717d26ce.png"
-                alt="Maalik Bomar" 
-                className="w-32 h-32 rounded-full object-cover border-2 border-mms-blue"
-              />
+              <img src="/lovable-uploads/edaa5036-fe7e-49f3-b4bc-1422717d26ce.png" alt="Maalik Bomar" className="w-32 h-32 rounded-full object-cover border-2 border-mms-blue" />
               <div>
                 <h3 className="text-xl font-bold text-mms-darkgray">Maalik Bomar</h3>
                 <p className="text-mms-blue font-medium">Regional Manager - Gardner Business Media</p>
@@ -37,19 +28,12 @@ const BookingSection = () => {
             </div>
             
             <div className="space-y-4">
-              <Button
-                className="w-full bg-mms-red hover:bg-red-600 text-white h-auto py-4 text-lg"
-                onClick={() => window.open("https://outlook.office.com/bookwithme/user/53c32e97b5e746c58b602472fc0486e1@GarPub.com/meetingtype/LfDQHgQD9kCwiwd2btB5zQ2?anonymous&ep=mLinkFromTile", "_blank")}
-              >
+              <Button className="w-full bg-mms-red hover:bg-red-600 text-white h-auto py-4 text-lg" onClick={() => window.open("https://outlook.office.com/bookwithme/user/53c32e97b5e746c58b602472fc0486e1@GarPub.com/meetingtype/LfDQHgQD9kCwiwd2btB5zQ2?anonymous&ep=mLinkFromTile", "_blank")}>
                 <Calendar className="mr-2" />
                 Schedule 30-Minute Consultation
               </Button>
               
-              <Button
-                variant="outline"
-                className="w-full border-mms-blue text-mms-blue hover:bg-mms-blue hover:text-white h-auto py-4 text-lg"
-                onClick={() => window.open("https://outlook.office.com/bookwithme/user/53c32e97b5e746c58b602472fc0486e1@GarPub.com/meetingtype/bergIhsKGEqJaS74rhs8Qw2?anonymous&ep=mLinkFromTile", "_blank")}
-              >
+              <Button variant="outline" className="w-full border-mms-blue text-mms-blue hover:bg-mms-blue hover:text-white h-auto py-4 text-lg" onClick={() => window.open("https://outlook.office.com/bookwithme/user/53c32e97b5e746c58b602472fc0486e1@GarPub.com/meetingtype/bergIhsKGEqJaS74rhs8Qw2?anonymous&ep=mLinkFromTile", "_blank")}>
                 <Calendar className="mr-2" />
                 Schedule 15-Minute Quick Chat
               </Button>
@@ -57,8 +41,6 @@ const BookingSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default BookingSection;
