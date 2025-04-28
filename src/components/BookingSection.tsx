@@ -14,7 +14,7 @@ const BookingSection = () => {
             </h2>
             <div className="flex items-start gap-4">
               <img 
-                src="/lovable-uploads/63ab0c99-50d3-4a3b-ae90-22c1c6b4bb86.png"
+                src="/lovable-uploads/edaa5036-fe7e-49f3-b4bc-1422717d26ce.png"
                 alt="Maalik Bomar" 
                 className="w-32 h-32 rounded-full object-cover border-2 border-mms-blue"
               />
