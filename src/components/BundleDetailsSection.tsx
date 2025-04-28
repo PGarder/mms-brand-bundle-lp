@@ -1,6 +1,7 @@
 import React from 'react';
 import { Check } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+
 const BundleDetailsSection = () => {
   return <section id="bundle-details" className="py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-8">
@@ -68,8 +69,7 @@ const BundleDetailsSection = () => {
 
             <div className="bg-white/10 rounded-lg p-6 mb-8">
               <h3 className="text-xl font-bold mb-4">Need design and creative for your ads?</h3>
-              <p className="mb-4">Work with GBM's Creative Team to design a comprehensive display advertising package.</p>
-              <Button className="w-full bg-mms-red hover:bg-red-600 text-white">Request Design Support</Button>
+              <p className="mb-4">We have an in-house creative team that can help you with comprehensive display advertising package.</p>
             </div>
 
             <div className="space-y-4">
@@ -85,4 +85,5 @@ const BundleDetailsSection = () => {
       </div>
     </section>;
 };
+
 export default BundleDetailsSection;
