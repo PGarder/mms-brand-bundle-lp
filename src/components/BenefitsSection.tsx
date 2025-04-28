@@ -1,10 +1,7 @@
-
 import React from 'react';
 import { Factory, Target, TrendingUp, BarChart } from 'lucide-react';
-
 const BenefitsSection = () => {
-  return (
-    <section id="benefits" className="py-16 md:py-24 bg-mms-lightgray">
+  return <section id="benefits" className="py-16 md:py-24 bg-mms-lightgray">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-mms-darkgray mb-4">
@@ -81,24 +78,19 @@ const BenefitsSection = () => {
               </div>
             </div>
 
-            <div className="bg-mms-darkgray text-white p-6 rounded-lg">
-              <h4 className="text-xl font-bold mb-4">Bundle Impact</h4>
-              <p className="mb-6">
-                This brand awareness bundle conditions buyers by ensuring your brand and business are present whenever and wherever those buyers are active onsite and offsite.
-              </p>
+            <div className="bg-mms-darkgray text-white p-6 rounded-lg py-[45px]">
+              
+              
               
               <div className="border-t border-white/20 pt-4">
-                <p className="text-sm italic">
-                  "By having a consistent presence across multiple channels, our company saw a 43% increase in qualified leads within just 3 months."
-                </p>
-                <p className="text-sm mt-2 font-semibold">— Marketing Director, Precision Manufacturing Company</p>
+                <p className="italic text-xl text-center">"By working with MMS to establish a consistent presence across multiple channels, our company saw a 43% increase in qualified leads within just 3 months."</p>
+                <p className="mt-2 font-semibold text-lg text-center">— Marketing Director, 
+Precision Manufacturing Company</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default BenefitsSection;
