@@ -36,6 +36,10 @@ const CountUpAnimation = ({ end, label, icon: Icon }: { end: number; label: stri
 };
 
 const HeroSection = () => {
+  const scrollToBooking = () => {
+    document.getElementById('book-meeting')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="gradient-bg text-white py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-8">
@@ -49,7 +53,10 @@ const HeroSection = () => {
               Reach an audience of qualified, active CNC machining shops and manufacturing professionals with high impact brand impressions across multiple content consumption channels.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button className="bg-mms-red hover:bg-red-600 text-white text-lg py-6 px-8">
+              <Button 
+                className="bg-mms-red hover:bg-red-600 text-white text-lg py-6 px-8"
+                onClick={scrollToBooking}
+              >
                 Build Your Brand
               </Button>
               <Button variant="white" className="text-lg py-6 px-8">

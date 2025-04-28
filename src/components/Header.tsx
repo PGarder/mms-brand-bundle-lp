@@ -3,6 +3,10 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
+  const scrollToBooking = () => {
+    document.getElementById('book-meeting')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <header className="bg-white py-4 px-4 md:px-8 shadow-sm">
       <div className="container mx-auto flex justify-between items-center">
@@ -21,9 +25,19 @@ const Header = () => {
               <li><a href="#pricing" className="text-mms-darkgray hover:text-mms-red text-lg font-bold">Pricing</a></li>
             </ul>
           </nav>
-          <Button className="bg-mms-red hover:bg-red-600 text-white">Book Your Bundle</Button>
+          <Button 
+            className="bg-mms-red hover:bg-red-600 text-white"
+            onClick={scrollToBooking}
+          >
+            Book Your Bundle
+          </Button>
         </div>
-        <Button className="md:hidden bg-mms-red hover:bg-red-600 text-white text-sm px-3 py-1">Contact</Button>
+        <Button 
+          className="md:hidden bg-mms-red hover:bg-red-600 text-white text-sm px-3 py-1"
+          onClick={scrollToBooking}
+        >
+          Contact
+        </Button>
       </div>
     </header>
   );
