@@ -1,5 +1,7 @@
+
 import React from 'react';
 import { Factory, Target, TrendingUp, BarChart } from 'lucide-react';
+
 const BenefitsSection = () => {
   return <section id="benefits" className="py-16 md:py-24 bg-mms-lightgray">
       <div className="container mx-auto px-4 md:px-8">
@@ -78,14 +80,10 @@ const BenefitsSection = () => {
               </div>
             </div>
 
-            <div className="bg-mms-darkgray text-white p-6 rounded-lg py-[45px]">
-              
-              
-              
-              <div className="border-t border-white/20 pt-4">
-                <p className="italic text-xl text-center">"By working with MMS to establish a consistent presence across multiple channels, our company saw a 43% increase in qualified leads within just 3 months."</p>
-                <p className="mt-2 font-semibold text-lg text-center">— Marketing Director, 
-Precision Manufacturing Company</p>
+            <div className="bg-mms-darkgray text-white p-8 rounded-lg flex items-center">
+              <div className="w-full">
+                <p className="italic text-2xl md:text-3xl text-center leading-snug font-medium">"By working with MMS to establish a consistent presence across multiple channels, our company saw a 43% increase in qualified leads within just 3 months."</p>
+                <p className="mt-4 font-semibold text-xl text-center">— Marketing Director, Precision Manufacturing Company</p>
               </div>
             </div>
           </div>
@@ -93,4 +91,5 @@ Precision Manufacturing Company</p>
       </div>
     </section>;
 };
+
 export default BenefitsSection;

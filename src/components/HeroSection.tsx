@@ -40,6 +40,15 @@ const HeroSection = () => {
     document.getElementById('book-meeting')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const downloadOnePager = () => {
+    const link = document.createElement('a');
+    link.href = '/lovable-uploads/2130a2ac-31f0-442f-b493-018b21fa399e.png';
+    link.download = 'MMS-2025-Brand-Awareness-Bundle.png';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section className="gradient-bg text-white py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-8">
@@ -59,11 +68,16 @@ const HeroSection = () => {
               >
                 Build Your Brand
               </Button>
-              <Button variant="white" className="text-lg py-6 px-8">
-                Download Media Kit
+              <Button 
+                variant="white" 
+                className="text-lg py-6 px-8"
+                onClick={downloadOnePager}
+              >
+                Download One Pager
               </Button>
             </div>
           </div>
+          
           <div className="relative space-y-8">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 animate-fade-in">
               <CountUpAnimation end={87500} label="Magazine Subscribers" icon={Users} />
