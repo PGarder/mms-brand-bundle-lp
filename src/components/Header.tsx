@@ -1,10 +1,17 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
+import { trackButtonClick } from '@/utils/analytics';
 
 const Header = () => {
   const scrollToBooking = () => {
     document.getElementById('book-meeting')?.scrollIntoView({ behavior: 'smooth' });
+    trackButtonClick('Book Your Bundle', 'Header');
+  };
+
+  const handleNavClick = (target: string, label: string) => {
+    document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' });
+    trackButtonClick(label, 'Header Navigation');
   };
 
   return (
@@ -20,9 +27,9 @@ const Header = () => {
         <div className="hidden md:flex items-center gap-6">
           <nav>
             <ul className="flex gap-6">
-              <li><a href="#benefits" className="text-mms-darkgray hover:text-mms-red text-lg font-bold">Benefits</a></li>
-              <li><a href="#bundle-details" className="text-mms-darkgray hover:text-mms-red text-lg font-bold">Bundle Details</a></li>
-              <li><a href="#pricing" className="text-mms-darkgray hover:text-mms-red text-lg font-bold">Pricing</a></li>
+              <li><a href="#benefits" onClick={() => handleNavClick('benefits', 'Benefits')} className="text-mms-darkgray hover:text-mms-red text-lg font-bold">Benefits</a></li>
+              <li><a href="#bundle-details" onClick={() => handleNavClick('bundle-details', 'Bundle Details')} className="text-mms-darkgray hover:text-mms-red text-lg font-bold">Bundle Details</a></li>
+              <li><a href="#pricing" onClick={() => handleNavClick('pricing', 'Pricing')} className="text-mms-darkgray hover:text-mms-red text-lg font-bold">Pricing</a></li>
             </ul>
           </nav>
           <Button 

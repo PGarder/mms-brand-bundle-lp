@@ -1,7 +1,7 @@
-
 import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Users, TrendingUp, BarChart, Monitor, Globe, Book } from "lucide-react";
+import { trackButtonClick } from '@/utils/analytics';
 
 const CountUpAnimation = ({ end, label, icon: Icon }: { end: number; label: string; icon: React.ElementType }) => {
   const [count, setCount] = useState(0);
@@ -38,6 +38,7 @@ const CountUpAnimation = ({ end, label, icon: Icon }: { end: number; label: stri
 const HeroSection = () => {
   const scrollToBooking = () => {
     document.getElementById('book-meeting')?.scrollIntoView({ behavior: 'smooth' });
+    trackButtonClick('Build Your Brand', 'Hero Section');
   };
 
   const downloadOnePager = () => {
@@ -47,6 +48,7 @@ const HeroSection = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    trackButtonClick('Download One Pager', 'Hero Section');
   };
 
   return (

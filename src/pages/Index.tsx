@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import BenefitsSection from '@/components/BenefitsSection';
@@ -7,10 +7,17 @@ import BundleDetailsSection from '@/components/BundleDetailsSection';
 import BookingSection from '@/components/BookingSection';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
+import { trackButtonClick, trackPageView } from '@/utils/analytics';
 
 const Index = () => {
+  useEffect(() => {
+    // Track page view when component mounts
+    trackPageView('Home');
+  }, []);
+
   const scrollToBooking = () => {
     document.getElementById('book-meeting')?.scrollIntoView({ behavior: 'smooth' });
+    trackButtonClick('Book Your Bundle Now', 'Mid Page CTA');
   };
 
   return (
@@ -46,7 +53,10 @@ const Index = () => {
           <Button 
             variant="white" 
             className="text-lg py-6 px-10"
-            onClick={scrollToBooking}
+            onClick={() => {
+              scrollToBooking();
+              trackButtonClick('Book Your Brand Awareness Bundle', 'Bottom CTA');
+            }}
           >
             Book Your Brand Awareness Bundle
           </Button>
