@@ -46,9 +46,9 @@ const HeroSection = () => {
   };
 
   const downloadOnePager = () => {
-    // Use the brand awareness bundle image
+    // Use the newly uploaded image
     const link = document.createElement('a');
-    link.href = '/lovable-uploads/a547e0f6-c807-4cb5-a1f9-2d334a11425b.png';
+    link.href = '/lovable-uploads/ddaa352c-4f1b-4bee-986e-c64f25fb0cad.png';
     link.download = 'MMS-2025-Brand-Awareness-Bundle.png';
     document.body.appendChild(link);
     link.click();
