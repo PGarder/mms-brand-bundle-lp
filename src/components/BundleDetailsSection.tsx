@@ -2,8 +2,14 @@
 import React from 'react';
 import { Check } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { trackButtonClick } from '@/utils/analytics';
 
 const BundleDetailsSection = () => {
+  const scrollToBooking = () => {
+    document.getElementById('book-meeting')?.scrollIntoView({ behavior: 'smooth' });
+    trackButtonClick('Book Your Bundle', 'Bundle Details Section');
+  };
+
   return <section id="bundle-details" className="py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center mb-12">
@@ -76,9 +82,13 @@ const BundleDetailsSection = () => {
             <div className="space-y-4">
               <h3 className="text-2xl font-bold">Book Your Brand Awareness Bundle Today!</h3>
               <p className="text-lg">For more information about Modern Machine Shop Brand Awareness Bundle or to schedule a demo, ask your sales representative or contact our advertising manager.</p>
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button className="flex-1 bg-mms-red hover:bg-red-600 text-white">Book Your Bundle</Button>
-                <Button className="flex-1 bg-white text-mms-darkgray hover:bg-mms-lightgray">Contact Sales</Button>
+              <div className="pt-4">
+                <Button 
+                  className="w-full bg-mms-red hover:bg-red-600 text-white"
+                  onClick={scrollToBooking}
+                >
+                  Book Your Bundle
+                </Button>
               </div>
             </div>
           </div>
