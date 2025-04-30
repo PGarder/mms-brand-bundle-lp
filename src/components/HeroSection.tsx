@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Users, TrendingUp, BarChart, Monitor, Globe, Book, Download } from "lucide-react";
@@ -50,8 +51,8 @@ const HeroSection = () => {
     try {
       setDownloadError(null);
       
-      // Use the Google Drive link
-      const driveLink = 'https://drive.google.com/file/d/1Deu_n-YY5c1YFrTAtYJauHTElVUwZErx/view?usp=sharing';
+      // Use the new Google Drive link
+      const driveLink = 'https://drive.google.com/file/d/1gAddnmMxVQiKwDK7KYfvUXh_OXipDhN4/view?usp=sharing';
       
       // Open the link in a new tab
       window.open(driveLink, '_blank');
