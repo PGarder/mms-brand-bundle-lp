@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Users, TrendingUp, BarChart, Monitor, Globe, Book } from "lucide-react";
@@ -51,33 +50,57 @@ const HeroSection = () => {
     try {
       setDownloadError(null);
       
-      // Create an anchor element to trigger the download
-      const link = document.createElement('a');
+      // Create a temporary link with the image we want to download
+      const imageUrl = '/lovable-uploads/98ab018c-ec4c-49c7-b69a-81967a6829a4.png';
       
-      // Use absolute URL path which is more reliable
-      const filePath = '/lovable-uploads/ddaa352c-4f1b-4bee-986e-c64f25fb0cad.png';
-      link.href = filePath;
-      link.download = 'MMS-2025-Brand-Awareness-Bundle.png';
-      link.target = '_blank'; // Opens in a new tab if direct download fails
-      
-      // Append to the document, click, and remove
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      
-      // Log the download attempt
-      console.log(`Attempting to download from: ${filePath}`);
-      
-      // Track the click event
-      trackButtonClick('Download One Pager', 'Hero Section');
-      
-      // Show success toast
-      toast({
-        title: "Download Started",
-        description: "Your one-pager is being downloaded",
-      });
+      // Use fetch to get the image as a blob
+      fetch(imageUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.blob();
+        })
+        .then(blob => {
+          // Create object URL from blob
+          const blobUrl = window.URL.createObjectURL(blob);
+          
+          // Create link element
+          const link = document.createElement('a');
+          link.href = blobUrl;
+          link.download = 'MMS-2025-Brand-Awareness-Bundle.png';
+          
+          // Append to document, click and clean up
+          document.body.appendChild(link);
+          link.click();
+          
+          // Clean up
+          setTimeout(() => {
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(blobUrl);
+          }, 100);
+          
+          // Show success toast
+          toast({
+            title: "Download Started",
+            description: "Your one-pager is being downloaded",
+          });
+          
+          // Track analytics
+          trackButtonClick('Download One Pager', 'Hero Section');
+        })
+        .catch(error => {
+          console.error('Download error:', error);
+          setDownloadError('Failed to download file. Please try again later.');
+          
+          toast({
+            title: "Download Failed",
+            description: "There was a problem downloading the file",
+            variant: "destructive",
+          });
+        });
     } catch (error) {
-      console.error('Download error:', error);
+      console.error('Download setup error:', error);
       setDownloadError('Failed to download file. Please try again later.');
       
       toast({
