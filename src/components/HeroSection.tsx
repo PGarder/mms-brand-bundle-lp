@@ -46,9 +46,9 @@ const HeroSection = () => {
   };
 
   const downloadOnePager = () => {
-    // Use an image that exists in the project
+    // Use the brand awareness bundle image
     const link = document.createElement('a');
-    link.href = '/lovable-uploads/03dd1c8d-e34a-42e3-8fff-47edac1ecdeb.png';
+    link.href = '/lovable-uploads/a547e0f6-c807-4cb5-a1f9-2d334a11425b.png';
     link.download = 'MMS-2025-Brand-Awareness-Bundle.png';
     document.body.appendChild(link);
     link.click();
