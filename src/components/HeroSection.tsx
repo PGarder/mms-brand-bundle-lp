@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Users, TrendingUp, BarChart, Monitor, Globe, Book } from "lucide-react";
+import { Users, TrendingUp, BarChart, Monitor, Globe, Book, Download } from "lucide-react";
 import { trackButtonClick } from '@/utils/analytics';
 import { useToast } from "@/hooks/use-toast";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
@@ -50,62 +50,28 @@ const HeroSection = () => {
     try {
       setDownloadError(null);
       
-      // Create a temporary link with the image we want to download
-      const imageUrl = '/lovable-uploads/98ab018c-ec4c-49c7-b69a-81967a6829a4.png';
+      // Use the Google Drive link
+      const driveLink = 'https://drive.google.com/file/d/1Deu_n-YY5c1YFrTAtYJauHTElVUwZErx/view?usp=sharing';
       
-      // Use fetch to get the image as a blob
-      fetch(imageUrl)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.blob();
-        })
-        .then(blob => {
-          // Create object URL from blob
-          const blobUrl = window.URL.createObjectURL(blob);
-          
-          // Create link element
-          const link = document.createElement('a');
-          link.href = blobUrl;
-          link.download = 'MMS-2025-Brand-Awareness-Bundle.png';
-          
-          // Append to document, click and clean up
-          document.body.appendChild(link);
-          link.click();
-          
-          // Clean up
-          setTimeout(() => {
-            document.body.removeChild(link);
-            window.URL.revokeObjectURL(blobUrl);
-          }, 100);
-          
-          // Show success toast
-          toast({
-            title: "Download Started",
-            description: "Your one-pager is being downloaded",
-          });
-          
-          // Track analytics
-          trackButtonClick('Download One Pager', 'Hero Section');
-        })
-        .catch(error => {
-          console.error('Download error:', error);
-          setDownloadError('Failed to download file. Please try again later.');
-          
-          toast({
-            title: "Download Failed",
-            description: "There was a problem downloading the file",
-            variant: "destructive",
-          });
-        });
+      // Open the link in a new tab
+      window.open(driveLink, '_blank');
+      
+      // Show success toast
+      toast({
+        title: "One Pager Opened",
+        description: "Your one-pager is opening in a new tab",
+      });
+      
+      // Track analytics
+      trackButtonClick('Download One Pager', 'Hero Section');
+      
     } catch (error) {
-      console.error('Download setup error:', error);
-      setDownloadError('Failed to download file. Please try again later.');
+      console.error('Error opening Google Drive link:', error);
+      setDownloadError('Failed to open the file. Please try again later.');
       
       toast({
-        title: "Download Failed",
-        description: "There was a problem downloading the file",
+        title: "Open Failed",
+        description: "There was a problem opening the one-pager",
         variant: "destructive",
       });
     }
@@ -140,10 +106,10 @@ const HeroSection = () => {
               </Button>
               <Button 
                 variant="white" 
-                className="text-lg py-6 px-8"
+                className="text-lg py-6 px-8 flex items-center gap-2"
                 onClick={downloadOnePager}
               >
-                Download One Pager
+                <Download className="w-5 h-5" /> View One Pager
               </Button>
             </div>
           </div>
