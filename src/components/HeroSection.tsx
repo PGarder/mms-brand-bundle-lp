@@ -1,7 +1,9 @@
+
 import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Users, TrendingUp, BarChart, Monitor, Globe, Book } from "lucide-react";
 import { trackButtonClick } from '@/utils/analytics';
+import { useToast } from "@/hooks/use-toast";
 
 const CountUpAnimation = ({ end, label, icon: Icon }: { end: number; label: string; icon: React.ElementType }) => {
   const [count, setCount] = useState(0);
@@ -36,18 +38,28 @@ const CountUpAnimation = ({ end, label, icon: Icon }: { end: number; label: stri
 };
 
 const HeroSection = () => {
+  const { toast } = useToast();
+  
   const scrollToBooking = () => {
     document.getElementById('book-meeting')?.scrollIntoView({ behavior: 'smooth' });
     trackButtonClick('Build Your Brand', 'Hero Section');
   };
 
   const downloadOnePager = () => {
+    // Use an image that exists in the project
     const link = document.createElement('a');
-    link.href = '/lovable-uploads/2130a2ac-31f0-442f-b493-018b21fa399e.png';
+    link.href = '/lovable-uploads/03dd1c8d-e34a-42e3-8fff-47edac1ecdeb.png';
     link.download = 'MMS-2025-Brand-Awareness-Bundle.png';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    
+    // Show success toast
+    toast({
+      title: "Download Started",
+      description: "Your one-pager is being downloaded",
+    });
+    
     trackButtonClick('Download One Pager', 'Hero Section');
   };
 
