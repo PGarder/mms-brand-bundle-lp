@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Users, TrendingUp, BarChart, Monitor, Globe, Book } from "lucide-react";
 import { trackButtonClick } from '@/utils/analytics';
 import { useToast } from "@/hooks/use-toast";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 
 const CountUpAnimation = ({ end, label, icon: Icon }: { end: number; label: string; icon: React.ElementType }) => {
   const [count, setCount] = useState(0);
@@ -39,6 +40,7 @@ const CountUpAnimation = ({ end, label, icon: Icon }: { end: number; label: stri
 
 const HeroSection = () => {
   const { toast } = useToast();
+  const [downloadError, setDownloadError] = useState<string | null>(null);
   
   const scrollToBooking = () => {
     document.getElementById('book-meeting')?.scrollIntoView({ behavior: 'smooth' });
@@ -46,21 +48,44 @@ const HeroSection = () => {
   };
 
   const downloadOnePager = () => {
-    // Use the newly uploaded image
-    const link = document.createElement('a');
-    link.href = '/lovable-uploads/ddaa352c-4f1b-4bee-986e-c64f25fb0cad.png';
-    link.download = 'MMS-2025-Brand-Awareness-Bundle.png';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    // Show success toast
-    toast({
-      title: "Download Started",
-      description: "Your one-pager is being downloaded",
-    });
-    
-    trackButtonClick('Download One Pager', 'Hero Section');
+    try {
+      setDownloadError(null);
+      
+      // Create an anchor element to trigger the download
+      const link = document.createElement('a');
+      
+      // Use absolute URL path which is more reliable
+      const filePath = '/lovable-uploads/ddaa352c-4f1b-4bee-986e-c64f25fb0cad.png';
+      link.href = filePath;
+      link.download = 'MMS-2025-Brand-Awareness-Bundle.png';
+      link.target = '_blank'; // Opens in a new tab if direct download fails
+      
+      // Append to the document, click, and remove
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Log the download attempt
+      console.log(`Attempting to download from: ${filePath}`);
+      
+      // Track the click event
+      trackButtonClick('Download One Pager', 'Hero Section');
+      
+      // Show success toast
+      toast({
+        title: "Download Started",
+        description: "Your one-pager is being downloaded",
+      });
+    } catch (error) {
+      console.error('Download error:', error);
+      setDownloadError('Failed to download file. Please try again later.');
+      
+      toast({
+        title: "Download Failed",
+        description: "There was a problem downloading the file",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -75,6 +100,14 @@ const HeroSection = () => {
             <p className="text-lg md:text-xl opacity-90">
               Reach an audience of qualified, active CNC machining shops and manufacturing professionals with high impact brand impressions across multiple content consumption channels.
             </p>
+            
+            {downloadError && (
+              <Alert variant="destructive" className="mb-4">
+                <AlertTitle>Download Error</AlertTitle>
+                <AlertDescription>{downloadError}</AlertDescription>
+              </Alert>
+            )}
+            
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button 
                 className="bg-mms-red hover:bg-red-600 text-white text-lg py-6 px-8"
